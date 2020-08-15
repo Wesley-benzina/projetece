@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{%  block body %}
+
+
+    <main id="main-container">
+        <div class="jumbotron text-center">
+            <h2 class="block-title">Liste des utilisateurs</h2>
+        </div>
+        <div class="content content-full">
+            <div class="block block-rounded block-bordered">
+                <div class="block-content block-content-full">
+                    <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 50px;">#</th>
+                            <th>Email</th>
+                            <th>Pseudo</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th class="d-none d-sm-table-cell" style="width: 25%;">Date d'inscription</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th class="text-center" scope="row"><a
+                                        href="/edit_user">1</a></th>
+                            <td class="d-none d-sm-table-cell" style="width: 20%">wesley00@hotmail.fr</td>
+                            <td class="d-none d-sm-table-cell" style="width: 20%">pinsley</td>
+                            <td class="d-none d-sm-table-cell" style="width: 20%">benzina</td>
+                            <td class="d-none d-sm-table-cell" style="width: 20%">wesley</td>
+                            <td class="d-none d-sm-table-cell">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+{% endblock %}
