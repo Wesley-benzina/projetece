@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc094162-184d-416f-9836-b2b573a9e62a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/clients.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/clients.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/devisetfacture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/devisetfacture.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/main.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/main.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main/projects.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/projects.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/taches.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/taches.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +174,7 @@
       <option name="presentableId" value="Default" />
       <updated>1595504352312</updated>
       <workItem from="1595504354658" duration="131000" />
-      <workItem from="1595504655050" duration="14505000" />
+      <workItem from="1595504655050" duration="17369000" />
     </task>
     <servers />
   </component>
