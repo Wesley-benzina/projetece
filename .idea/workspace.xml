@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc094162-184d-416f-9836-b2b573a9e62a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/main/clients.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/main/devisetfacture.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/main/edit_user.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/main/projects.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/main/taches.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/clients.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/clients.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/devisetfacture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/devisetfacture.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main/main.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/main.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/projects.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/projects.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/taches.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/taches.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,12 +34,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="dashboard@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="Git.Settings">
@@ -155,7 +146,7 @@
   <component name="ProjectId" id="1f5OBcck8eiKwqA3elgR67OHudr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DatabaseDriversLRU" value="mariadb&#10;mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -189,7 +180,7 @@
       <option name="presentableId" value="Default" />
       <updated>1595504352312</updated>
       <workItem from="1595504354658" duration="131000" />
-      <workItem from="1595504655050" duration="11110000" />
+      <workItem from="1595504655050" duration="14505000" />
     </task>
     <servers />
   </component>
