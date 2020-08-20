@@ -1,0 +1,43 @@
+{% extends 'views/layout.html.twig' %}
+
+{% block body %}
+
+    <div class="intro-y flex items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+            Ajouter un client
+        </h2>
+    </div>
+    <div class="grid grid-cols-12 gap-6 mt-5">
+        <div class="intro-y col-span-12 lg:col-span-12">
+            <div class="intro-y box">
+                {{ form_start(form) }}
+                <div class="p-5" id="input">
+                    <div class="preview">
+                        <div>
+                            <label>Entreprise</label>
+                            {{ form_widget(form.firme) }}
+                        </div>
+                        <div>
+                            <label>Prénom</label>
+                            {{ form_widget(form.firstname) }}
+                        </div>
+                        <div>
+                            <label>Nom</label>
+                            {{ form_widget(form.lastname) }}
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            {{ form_widget(form.email) }}
+                        </div>
+                        <div>
+                            <label>Téléphone</label>
+                            {{ form_widget(form.phone) }}
+                        </div>
+                        <button type="submit" class="button bg-theme-1 text-white mt-5">Valider</button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
