@@ -1,0 +1,59 @@
+{% extends 'views/layout.html.twig' %}
+
+{% block body %}
+<div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+    <h2 class="text-lg font-medium mr-auto">
+       Liste des Projets
+    </h2>
+    <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+        <a href="{{ path('new_project') }}"><button class="button text-white bg-theme-1 shadow-md mr-2"><p class="fas fa-plus"></p>      Ajouter un Projet
+            </button></a>
+    </div>
+</div>
+
+<div class="intro-y datatable-wrapper box p-5 mt-5">
+    <table class="table table-report table-report--bordered display datatable w-full">
+        <thead>
+        <tr>
+            <th class="border-b-2 whitespace-no-wrap">ID</th>
+            <th class="border-b-2 whitespace-no-wrap">Nom :</th>
+            <th class="border-b-2 whitespace-no-wrap">Lié à :</th>
+            <th class="border-b-2 whitespace-no-wrap">Progression :</th>
+            <th class="border-b-2 whitespace-no-wrap">Etat</th>
+            <th class="border-b-2 whitespace-no-wrap">Actions :</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for project in  listProject%}
+            <tr>
+                <td class="border-b">
+                    <div class="font-medium whitespace-no-wrap">{{ project.id }}</div>
+                </td>
+                <td class="border-b">
+                    <div class="font-medium whitespace-no-wrap">{{ project.name }}</div>
+                </td>
+                <td class="border-b">
+                    <div class="font-medium whitespace-no-wrap">{{ project.client.firstname }} {{ project.client.lastname }}</div>
+                </td>
+                <td class="border-b">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{ project.progress }}%;" aria-valuenow="{{ project.progress }}" aria-valuemin="0" aria-valuemax="100">{{ project.progress }}%</div>
+                    </div>
+                </td>
+                <td class="border-b">
+                    <div class="font-medium whitespace-no-wrap">
+                        {{ project.state ? '<span class="px-3 py-2 rounded-full bg-theme-9 text-white mr-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En cours </font></font></span>' : '<span class="px-2 py-1 rounded-full bg-theme-6 text-white mr-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Terminé </font></font></span>'}}
+                    </div>
+                </td>
+                <td class="border-b w-5">
+                    <div class="flex sm:justify-center items-center">
+                        <a class="flex items-center mr-3" href="{{ path('edit_projet', {'id': project.id}) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editer </a>
+                        <a class="flex items-center text-theme-6" href=""> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Supprimer </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

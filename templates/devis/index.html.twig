@@ -1,0 +1,54 @@
+{% extends 'views/layout.html.twig' %}
+
+{% block body %}
+
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+            Liste des Devis
+        </h2>
+        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+            <a href="{{ path('new_devis') }}"><button class="button text-white bg-theme-1 shadow-md mr-2"><p class="fas fa-plus"></p>      Ajouter un Devis
+                </button></a>
+        </div>
+    </div>
+
+    <div class="intro-y datatable-wrapper box p-5 mt-5">
+        <table class="table table-report table-report--bordered display datatable w-full">
+            <thead>
+            <tr>
+                <th class="border-b-2 whitespace-no-wrap">ID</th>
+                <th class="border-b-2 whitespace-no-wrap">Nom du Devis :</th>
+                <th class="border-b-2 whitespace-no-wrap">Lié à :</th>
+                <th class="border-b-2 whitespace-no-wrap">Ajouté le  :</th>
+                <th class="border-b-2 whitespace-no-wrap">Actions :</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for devis in listDevis %}
+                <tr>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">{{ devis.id }}</div>
+                    </td>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">{{ devis.name }}</div>
+                    </td>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">{{ devis.linkto }}</div>
+                    </td>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">{{ devis.createdAt|date('d/m/Y') }}</div>
+                    </td>
+                    <td class="border-b w-5">
+                        <div class="flex sm:justify-center items-center">
+                            <a class="flex items-center mr-3" href="{{ path('edit_devis', {'id': devis.id}) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editer </a>
+                            <a class="flex items-center mr-3" href="{{ path('show_devis', {'id': devis.id}) }}"> <i data-feather="eye" class="w-4 h-4 mr-1"></i> Voir </a>
+                            <a class="flex items-center text-theme-6" href="{{ path('delete_devis', {'id': devis.id}) }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Supprimer </a>
+                        </div>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
