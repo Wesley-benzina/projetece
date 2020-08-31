@@ -1,5 +1,54 @@
 {% extends 'views/layout.html.twig' %}
 
 {% block body %}
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+            Liste des Tâches
+        </h2>
+        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+            <a href="{{ path('new_tache') }}"><button class="button text-white bg-theme-1 shadow-md mr-2"><p class="fas fa-plus"></p>      Ajouter une Tâche
+                </button></a>
+        </div>
+    </div>
 
+    <div class="intro-y datatable-wrapper box p-5 mt-5">
+        <table class="table table-report table-report--bordered display datatable w-full">
+            <thead>
+            <tr>
+                <th class="border-b-2 whitespace-no-wrap">ID</th>
+                <th class="border-b-2 whitespace-no-wrap">Label :</th>
+                <th class="border-b-2 whitespace-no-wrap">Status :</th>
+                <th class="border-b-2 whitespace-no-wrap">Actions :</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for tache in taches %}
+                <tr>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">#{{ tache.id }}</div>
+                    </td>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">{{ tache.label }}</div>
+                    </td>
+                    <td class="border-b">
+                        {{ tache.status ? '<span class="px-3 py-2 rounded-full bg-theme-9 text-white mr-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En cours </font></font></span>' : '<span class="px-2 py-1 rounded-full bg-theme-6 text-white mr-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Terminé </font></font></span>'}}
+                    </td>
+                    <td class="border-b w-5">
+                        <div class="flex sm:justify-center items-center">
+                            <a class="flex items-center mr-3" href="{{ path('edit_tache', {'id': tache.id}) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editer </a>
+                            <form style="display:inline-block" method="post"
+                                  action="{{ path('delete_tache', {'id':tache.id}) }}"
+                                  onsubmit="return confirm('Êtes vous sûr de vouloir supprimer cette tâche ?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="flex items-center text-theme-6">
+                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Supprimer
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
