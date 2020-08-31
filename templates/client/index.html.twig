@@ -15,7 +15,6 @@
     <table id="data-table" class="table table-report table-report--bordered display datatable w-full">
         <thead>
         <tr>
-
             <th class="border-b-2 whitespace-no-wrap">ID</th>
             <th class="border-b-2 whitespace-no-wrap">Entreprise</th>
             <th class="border-b-2 whitespace-no-wrap">Nom</th>
@@ -47,7 +46,14 @@
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
                         <a class="flex items-center mr-3" href="{{ path('edit_client', {'id': client.id}) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editer </a>
-                        <a class="flex items-center text-theme-6" href="{{ path('delete_client', {'id': client.id}) }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Supprimer </a>
+                        <form style="display:inline-block" method="post"
+                              action="{{ path('delete_client', {'id':client.id}) }}"
+                              onsubmit="return confirm('Êtes vous sûr de vouloir supprimer ce client ?');">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="flex items-center text-theme-6">
+                                <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Supprimer
+                            </button>
+                        </form>
                     </div>
                 </td>
             </tr>

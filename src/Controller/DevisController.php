@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Client;
 use App\Entity\Devis;
-use App\Form\ClientType;
 use App\Form\DevisType;
 use App\Repository\DevisRepository;
 use DateTime;
@@ -63,7 +61,7 @@ class DevisController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $devis->setUpdatedAt(new \DateTime());
+           // $devis->setUpdatedAt(new \DateTime());
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute('liste_devis');
@@ -74,7 +72,7 @@ class DevisController extends AbstractController
         ]);
     }
     /**
-     * @Route("/delete/{id}", name="delete_devis")
+     * @Route("/delete/{id}", name="delete_devis", methods={"DELETE"})
      */
     public function delete(Devis $devis){
         $em = $this->getDoctrine()->getManager();

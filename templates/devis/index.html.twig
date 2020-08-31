@@ -42,8 +42,14 @@
                         <div class="flex sm:justify-center items-center">
                             <a class="flex items-center mr-3" href="{{ path('edit_devis', {'id': devis.id}) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editer </a>
                             <a class="flex items-center mr-3" href="{{ path('show_devis', {'id': devis.id}) }}"> <i data-feather="eye" class="w-4 h-4 mr-1"></i> Voir </a>
-                            <a class="flex items-center text-theme-6" href="{{ path('delete_devis', {'id': devis.id}) }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Supprimer </a>
-                        </div>
+                            <form style="display:inline-block" method="post"
+                                  action="{{ path('delete_devis', {'id':devis.id}) }}"
+                                  onsubmit="return confirm('Êtes vous sûr de vouloir supprimer ce devis ?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="flex items-center text-theme-6">
+                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Supprimer
+                                </button>
+                            </form>                        </div>
                     </td>
 
                 </tr>

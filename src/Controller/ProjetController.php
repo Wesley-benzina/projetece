@@ -62,7 +62,7 @@ class ProjetController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $project->setUpdatedAt(new \DateTime());
+            $project->setUpdatedAt(new DateTime());
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute('liste_projet');
@@ -71,6 +71,15 @@ class ProjetController extends AbstractController
         return $this->render('projet/edit.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+    /**
+     * @Route("/delete/{id}", name="delete_projet", methods={"DELETE"})
+     */
+    public function delete(Project $project){
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($project);
+        $em->flush();
+        return $this->redirectToRoute('liste_projet');
     }
 
 }

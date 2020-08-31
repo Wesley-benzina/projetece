@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Client;
 use App\Form\ClientType;
 use App\Repository\ClientRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -35,7 +36,7 @@ class ClientController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()){
-            $client->setCreatedAt(new \DateTime());
+            $client->setCreatedAt(new DateTime());
             $em = $this->getDoctrine()->getManager();
             $em->persist($client);
             $em->flush();
@@ -56,7 +57,7 @@ class ClientController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $client->setUpdatedAt(new \DateTime());
+            $client->setUpdatedAt(new DateTime());
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute('list_client');
@@ -68,7 +69,7 @@ class ClientController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="delete_client")
+     * @Route("/delete/{id}", name="delete_client", methods={"DELETE"})
      */
     public function delete(Client $client){
         $em = $this->getDoctrine()->getManager();

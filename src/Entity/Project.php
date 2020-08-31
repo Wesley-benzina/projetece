@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -103,24 +105,24 @@ class Project
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreatedAt(DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
 
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTimeInterface
+    public function getUpdateAt(): ?DateTimeInterface
     {
         return $this->update_at;
     }
 
-    public function setUpdateAt(?\DateTimeInterface $update_at): self
+    public function setUpdateAt(?DateTimeInterface $update_at): self
     {
         $this->update_at = $update_at;
 
@@ -169,5 +171,9 @@ class Project
 
         return $this;
     }
-    
+
+    public function setUpdatedAt(DateTime $param)
+    {
+    }
+
 }
