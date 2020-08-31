@@ -1,5 +1,41 @@
 {% extends 'views/layout.html.twig' %}
 
 {% block body %}
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+        DASHBOARD:
+        </h2>
+    </div>
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+        Les tâches à réaliser :
+        </h2>
+    </div>
 
+    <div class="intro-y datatable-wrapper box p-5 mt-5">
+        <table class="table table-report table-report--bordered display datatable w-full">
+            <thead>
+            <tr>
+                <th class="border-b-2 whitespace-no-wrap">ID</th>
+                <th class="border-b-2 whitespace-no-wrap">Label :</th>
+                <th class="border-b-2 whitespace-no-wrap">Status :</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for tache in taches %}
+                <tr>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">#{{ tache.id }}</div>
+                    </td>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">{{ tache.label }}</div>
+                    </td>
+                    <td class="border-b">
+                        {{ tache.status ? '<span class="px-3 py-2 rounded-full bg-theme-9 text-white mr-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En cours </font></font></span>' : '<span class="px-2 py-1 rounded-full bg-theme-6 text-white mr-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Terminé </font></font></span>'}}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

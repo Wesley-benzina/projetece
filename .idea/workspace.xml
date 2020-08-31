@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44cefe12-a696-4add-9cb1-d2d79b3ac88f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20200831150522.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/TacheType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tache/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tache/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TacheController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TacheController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/devis/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/devis/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tache/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tache/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/_navbar.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +186,7 @@
       <workItem from="1597789611641" duration="43881000" />
       <workItem from="1598570725880" duration="12441000" />
       <workItem from="1598884184951" duration="194000" />
-      <workItem from="1598884676283" duration="2741000" />
+      <workItem from="1598884676283" duration="3716000" />
     </task>
     <servers />
   </component>
@@ -214,10 +209,10 @@
       <screen x="0" y="23" width="1440" height="812" />
     </state>
     <state x="496" y="143" key="#com.intellij.ide.util.MemberChooser/0.23.1440.812@0.23.1440.812" timestamp="1598142254688" />
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598886675472">
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598888590336">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1598886675472" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1598888590336" />
     <state x="297" y="0" key="CommitChangelistDialog2" timestamp="1597934143442">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
