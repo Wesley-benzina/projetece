@@ -2,7 +2,7 @@
 <nav class="side-nav">
     <a href="{{ path('home') }}" class="intro-x flex items-center pl-5 pt-4">
         <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="{{ asset('assets/images/logo.svg') }}">
-        <span class="hidden xl:block text-white text-lg ml-3"> WeBe<span class="font-medium">Gestion</span> </span>
+        <span class="hidden xl:block text-white text-lg ml-3"> WeBe<span class="font-medium">Management</span> </span>
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
@@ -21,7 +21,7 @@
         <li>
             <a href="{{ path('liste_devis') }}" class="side-menu {% if route_name == 'liste_devis'%}side-menu--active{% endif %}">
                 <div class="side-menu__icon"> <i class="fas fa-dollar-sign fa-2x"></i> </div>
-                <div class="side-menu__title"> Devis et Factures </div>
+                <div class="side-menu__title"> Factures </div>
             </a>
         </li>
         <li>

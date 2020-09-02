@@ -17,8 +17,8 @@
             <thead>
             <tr>
                 <th class="border-b-2 whitespace-no-wrap">ID</th>
-                <th class="border-b-2 whitespace-no-wrap">Nom du Devis :</th>
-                <th class="border-b-2 whitespace-no-wrap">Lié à :</th>
+                <th class="border-b-2 whitespace-no-wrap">Titre facture :</th>
+                <th class="border-b-2 whitespace-no-wrap">Lié à (Projet) :</th>
                 <th class="border-b-2 whitespace-no-wrap">Ajouté le  :</th>
                 <th class="border-b-2 whitespace-no-wrap">Actions :</th>
             </tr>
@@ -33,14 +33,14 @@
                         <div class="font-medium whitespace-no-wrap">{{ devis.name }}</div>
                     </td>
                     <td class="border-b">
-                        <div class="font-medium whitespace-no-wrap">{{ devis.linkto }}</div>
+                        <div class="font-medium whitespace-no-wrap">{{ devis.linkto.name }}</div>
                     </td>
                     <td class="border-b">
                         <div class="font-medium whitespace-no-wrap">{{ devis.createdAt|date('d/m/Y') }}</div>
                     </td>
                     <td class="border-b w-5">
                         <div class="flex sm:justify-center items-center">
-                            <a class="flex items-center mr-3" href="{{ path('edit_devis', {'id': devis.id}) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editer </a>
+                            <a class="flex items-center mr-3" href="{{ path('edit_devis', {'id': devis.id}) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Modifier </a>
                             <a class="flex items-center mr-3" href="{{ path('show_devis', {'id': devis.id}) }}"> <i data-feather="eye" class="w-4 h-4 mr-1"></i> Voir </a>
                             <form style="display:inline-block" method="post"
                                   action="{{ path('delete_devis', {'id':devis.id}) }}"
