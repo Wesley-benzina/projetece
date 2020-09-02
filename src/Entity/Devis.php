@@ -34,7 +34,7 @@ class Devis
 
     /**
      * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="devis")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $project;
 
