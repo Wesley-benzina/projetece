@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Devis;
+use App\Entity\Project;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,14 +16,13 @@ class DevisType extends AbstractType
     {
         $builder
             ->add('name',  TextType::class, array('attr' => ['class' => 'input w-full border mt-2', 'placeholder' => 'Nom ...']))
-            ->add('linkto',  TextType::class, array('attr' => ['class' => 'input w-full border mt-2', 'placeholder' => 'Nom du projet']));
-           /* ->add('linkto', EntityType::class, [
+           ->add('project', EntityType::class, [
             'invalid_message' => 'Le projet n\'a pas été trouvé',
             'class' => Project::class,
             'multiple' => false,
             'choice_label' => 'name',
-            'attr' => ['class' => 'input w-full border mt-2']*/
-            // ])
+            'attr' => ['class' => 'input w-full border mt-2']
+    ])
         ;
     }
 

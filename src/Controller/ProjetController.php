@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
- * @Route("/projet")
+ * @Route("/app/projet")
  */
 class ProjetController extends AbstractController
 {
@@ -25,8 +25,13 @@ class ProjetController extends AbstractController
      */
     public function index(ProjectRepository $projectRepository)
     {
+        if ($this->isGranted('ROLE_ADMIN')){
+            $projets = $projectRepository->findAll();
+        } else {
+            $projets = $projectRepository->findByClientUser($this->getUser());
+        }
         return $this->render('projet/index.html.twig', [
-            'listProject' => $projectRepository->findAll()
+            'listProject' => $projets
         ]);
     }
 
@@ -62,7 +67,7 @@ class ProjetController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $project->setUpdatedAt(new DateTime());
+            $project->setUpdateAt(new DateTime());
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute('liste_projet');

@@ -19,6 +19,19 @@ class TacheRepository extends ServiceEntityRepository
         parent::__construct($registry, Tache::class);
     }
 
+    public function findByClientUser($user)
+    {
+        return $this->createQueryBuilder('t')
+            ->leftJoin('t.project', 'p')
+            ->leftJoin('p.client', 'c')
+            ->where('c.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
     // /**
     //  * @return Tache[] Returns an array of Tache objects
     //  */

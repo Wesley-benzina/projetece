@@ -57,11 +57,16 @@ class Project
      */
     private $devis;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Tache::class, mappedBy="project")
+     */
+    private $taches;
+
     public function __construct()
     {
         $this->devis = new ArrayCollection();
+        $this->taches = new ArrayCollection();
     }
-
 
     public function getState(): ?bool
     {
@@ -172,8 +177,34 @@ class Project
         return $this;
     }
 
-    public function setUpdatedAt(DateTime $param)
+    /**
+     * @return Collection|Tache[]
+     */
+    public function getTaches(): Collection
     {
+        return $this->taches;
     }
 
+    public function addTach(Tache $tach): self
+    {
+        if (!$this->taches->contains($tach)) {
+            $this->taches[] = $tach;
+            $tach->setProject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTach(Tache $tach): self
+    {
+        if ($this->taches->contains($tach)) {
+            $this->taches->removeElement($tach);
+            // set the owning side to null (unless already changed)
+            if ($tach->getProject() === $this) {
+                $tach->setProject(null);
+            }
+        }
+
+        return $this;
+    }
 }

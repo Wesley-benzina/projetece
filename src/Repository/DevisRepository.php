@@ -19,6 +19,18 @@ class DevisRepository extends ServiceEntityRepository
         parent::__construct($registry, Devis::class);
     }
 
+    public function findByClientUser($user)
+    {
+        return $this->createQueryBuilder('d')
+            ->leftJoin('d.project', 'p')
+            ->leftJoin('p.client', 'c')
+            ->where('c.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Devis[] Returns an array of Devis objects
     //  */

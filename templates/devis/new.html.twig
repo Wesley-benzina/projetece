@@ -4,7 +4,7 @@
 
     <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            Ajouter un Devis
+            Ajouter une Facture
         </h2>
     </div>
     <div class="grid grid-cols-12 gap-6 mt-5">
@@ -14,12 +14,12 @@
                 <div class="p-5" id="input">
                     <div class="preview">
                         <div>
-                            <label>Nom du devis :</label>
+                            <label>Titre de la Facture :</label>
                             {{ form_widget(form.name) }}
                         </div>
                         <div>
                             <label>Lié à (Projet) :</label>
-                            {{ form_widget(form.linkto) }}
+                            {{ form_widget(form.project) }}
                         </div>
                         <button type="submit" class="button bg-theme-1 text-white mt-5">Valider</button>
                     </div>

@@ -37,6 +37,12 @@ class Tache
      */
     private $status;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="taches")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $project;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +92,18 @@ class Tache
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Project $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }

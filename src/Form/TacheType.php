@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Project;
 use App\Entity\Tache;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,6 +22,13 @@ class TacheType extends AbstractType
                     'En cours' => 1,
                     'Terminé' => 0
                 ],
+                'attr' => ['class' => 'input w-full border mt-2']
+            ])
+            ->add('project', EntityType::class, [
+                'invalid_message' => 'Le projet n\'a pas été trouvé',
+                'class' => Project::class,
+                'multiple' => false,
+                'choice_label' => 'firstname',
                 'attr' => ['class' => 'input w-full border mt-2']
             ])
         ;

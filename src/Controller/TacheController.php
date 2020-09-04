@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/tache")
+ * @Route("/app/tache")
  */
 
 class TacheController extends AbstractController
@@ -21,8 +21,14 @@ class TacheController extends AbstractController
      */
     public function index(TacheRepository $tacheRepository)
     {
+        if ($this->isGranted('ROLE_ADMIN')){
+            $taches = $tacheRepository->findAll();
+        } else {
+            $taches = $tacheRepository->findByClientUser($this->getUser());
+        }
+
         return $this->render('tache/index.html.twig', [
-            'taches' => $tacheRepository->findAll()
+            'taches' => $taches
         ]);
     }
 
@@ -34,9 +40,9 @@ class TacheController extends AbstractController
         $form = $this->createForm(TacheType::class,$tache);
         $form->handleRequest($request);
 
-
         if ($form->isSubmitted() && $form->isValid()){
-            $tache->setCreatedAt(new DateTime());
+            $tache->setCreatedAt(new DateTime())
+            ->setUpdatedAt(new DateTime());
             $em = $this->getDoctrine()->getManager();
             $em->persist($tache);
             $em->flush();

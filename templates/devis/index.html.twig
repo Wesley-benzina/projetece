@@ -7,7 +7,7 @@
             Liste des Factures
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a href="{{ path('new_devis') }}"><button class="button text-white bg-theme-1 shadow-md mr-2"><p class="fas fa-plus"></p>      Ajouter un Devis
+            <a href="{{ path('new_devis') }}"><button class="button text-white bg-theme-1 shadow-md mr-2"><p class="fas fa-plus"></p>      Ajouter une Facture
                 </button></a>
         </div>
     </div>
@@ -33,7 +33,7 @@
                         <div class="font-medium whitespace-no-wrap">{{ devis.name }}</div>
                     </td>
                     <td class="border-b">
-                        <div class="font-medium whitespace-no-wrap">{{ devis.linkto }}</div>
+                        <div class="font-medium whitespace-no-wrap">{{ devis.project.name }}</div>
                     </td>
                     <td class="border-b">
                         <div class="font-medium whitespace-no-wrap">{{ devis.createdAt|date('d/m/Y') }}</div>

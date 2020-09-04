@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route ("/devisetfacture")
+ * @Route ("/app/devisetfacture")
  */
 class DevisController extends AbstractController
 {
@@ -23,8 +23,13 @@ class DevisController extends AbstractController
      */
     public function index(DevisRepository $devisRepository)
     {
+        if ($this->isGranted('ROLE_ADMIN')){
+            $devis = $devisRepository->findAll();
+        } else {
+            $devis = $devisRepository->findByClientUser($this->getUser());
+        }
         return $this->render('devis/index.html.twig', [
-            'listDevis' => $devisRepository->findAll()
+            'listDevis' => $devis
         ]);
     }
 

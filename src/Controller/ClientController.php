@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/client")
+ * @Route("/app/client")
  */
 
 class ClientController extends AbstractController
@@ -21,8 +21,13 @@ class ClientController extends AbstractController
      */
     public function index(ClientRepository $clientRepository)
     {
+        if ($this->isGranted('ROLE_ADMIN')){
+            $clients = $clientRepository->findAll();
+        } else {
+            $clients = $clientRepository->findBy(['user' => $this->getUser()]);
+        }
         return $this->render('client/index.html.twig', [
-            'clients' => $clientRepository->findAll()
+            'clients' => $clients
         ]);
     }
 
@@ -36,7 +41,8 @@ class ClientController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()){
-            $client->setCreatedAt(new DateTime());
+            $client->setCreatedAt(new DateTime())
+                ->setUser($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($client);
             $em->flush();
@@ -52,20 +58,24 @@ class ClientController extends AbstractController
      * @Route("/{id}", name="edit_client")
      */
     public function edit(Client $client, Request $request){
+        if ($this->isGranted('ROLE_ADMIN') || $client->getUser() == $this->getUser()){
+            $form = $this->createForm(ClientType::class,$client);
+            $form->handleRequest($request);
 
-        $form = $this->createForm(ClientType::class,$client);
-        $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()){
+                $client->setUpdatedAt(new DateTime());
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+                return $this->redirectToRoute('list_client');
+            }
 
-        if ($form->isSubmitted() && $form->isValid()){
-            $client->setUpdatedAt(new DateTime());
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
+            return $this->render('client/edit.html.twig', [
+                'form' => $form->createView()
+            ]);
+        } else {
             return $this->redirectToRoute('list_client');
         }
 
-        return $this->render('client/edit.html.twig', [
-            'form' => $form->createView()
-        ]);
     }
 
     /**

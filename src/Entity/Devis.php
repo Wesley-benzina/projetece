@@ -23,18 +23,13 @@ class Devis
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $linkto;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $created_at;
 
     /**
      * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="devis")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $project;
 
@@ -51,18 +46,6 @@ class Devis
     public function setName(?string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getLinkto(): ?string
-    {
-        return $this->linkto;
-    }
-
-    public function setLinkto(?string $linkto): self
-    {
-        $this->linkto = $linkto;
 
         return $this;
     }
